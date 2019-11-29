@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthenticationService, private route: Router) { }
 
   ngOnInit() {
   }
 
+  /**
+   * Take the current user to logout from the app
+   * Also redirect to the login page
+   * @todo: redirect the user to blog/news/current activities..
+   */
+  handleLogout() {
+    this.authService.removeToken();
+    this.route.navigate(['/login']);
+  }
 }
