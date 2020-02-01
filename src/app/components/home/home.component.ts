@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
   title = "Help Portal";
+
+  constructor(private authService:AuthenticationService,
+     private router: Router) { }
 
   ngOnInit() {
     this.redirectToLogin();
@@ -21,10 +23,11 @@ export class HomeComponent implements OnInit {
    */
   redirectToLogin() {
     //check from services if the user has logged in.
-    let isLogged = true; //read from service or something to check if session is active
-    if (!isLogged) {
-      this.router.navigate(['login']);
+    let navigate = ['home/help']
+    if (!this.authService.logged) {
+      navigate = ['login'];
     }
+    this.router.navigate(navigate);
   }
 
 }

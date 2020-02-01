@@ -1,0 +1,8 @@
+input.has-error {
+    border: 1px red solid
+}
+div.error-message {
+    color: red;
+    font-size: 10px;
+    text-decoration: none;
+}
