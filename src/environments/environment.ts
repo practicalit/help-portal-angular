@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
   //server: 'http://localhost:8085',
   server: 'https://ethio-help.herokuapp.com',
+=======
+  server: 'http://localhost:8085',
+>>>>>>> 29d9586e573d013936717ad96d3500645e3a15c4
   authEndPoint: '/api/member/authenticate',
   helpListEndPoint: '/api/help'
 };
