@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //server: 'http://localhost:8085',
+  server:'https://ethio-help.herokuapp.com',
+  authEndPoint: '/api/member/authenticate',
+  helpListEndPoint: '/api/help'
 };
 
 /*
