@@ -12,6 +12,6 @@ export class FormComponent implements OnInit {
   ngOnInit() {
   }
 afterForm(){
-  alert('sucessfully submitted');
+  alert('sucessfully submitted !!,Thanks for join us');
 }
 }
