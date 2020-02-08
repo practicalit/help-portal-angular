@@ -29,5 +29,11 @@ export class HomeComponent implements OnInit {
     }
     this.router.navigate(navigate);
   }
+  private redirectToHome() {
+    this.router.navigate(['/home']);
+  }
 
+   helpRequestForm(){
+     this.router.navigate(['/form'])
+   }
 }

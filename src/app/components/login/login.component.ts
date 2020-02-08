@@ -63,4 +63,5 @@ export class LoginComponent implements OnInit {
   private redirectToHome() {
     this.router.navigate(['/home']);
   }
+  
 }

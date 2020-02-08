@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Help Request Form</title>
+<style> 
+#sbmt {
+background: rgb(54, 136, 212);
+cursor: pointer;
+
+}    
+h1 ,p {
+    color: blue;
+}
+p {
+    color: green
+}
+body {
+    background-color: rgb(224, 233, 187);
+}
+</style>
+
+</head>
+<body>
+    <h1><b>Help Request and Submition Form</b></h1><br>
+    <div class="form-group">
+   <p>
+        <label>Help Types 
+        <select id="pickup_place" name="pickup_place">
+        <option value=" selected="selected>Select Help Option</option>
+        <option value="website" >Advice</option>
+        <option value="membership" >Material</option>
+        <option value="telepathy" >Money</option>
+        </select>
+        </label> 
+        <br> 
+    
+    <label>Help Title 
+        <input type="text" name="customer_name" maxlength="100"><br>
+        <br>
+        <label>DeadLine <br>
+            <input type="date">
+        <br>
+        <br>
+    
+
+
+<label>Desciption  <br>
+<textarea name="comments" style="width:280px; height:200px;"  ></textarea><br>
+
+<button id="sbmt"(click)="afterForm()">SubmitRequest</button>
+
