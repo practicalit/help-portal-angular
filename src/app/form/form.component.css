@@ -1,0 +1,14 @@
+#sbmt {
+    background: rgb(54, 136, 212);
+    cursor: pointer;
+    
+    }    
+    h1 ,p {
+        color: blue;
+    }
+    p {
+        color: green
+    }
+    body {
+        background-color: rgb(224, 233, 187);
+    }
