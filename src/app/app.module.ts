@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
+import { RegisterationComponent } from './Registeration/registeration/registeration.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HelpComponent } from './components/help/help.component';
     DashboardComponent,
     LoginComponent,
     HomeComponent,
-    HelpComponent
+    HelpComponent,
+    RegisterationComponent
   ],
   imports: [
     AppRoutingModule,
