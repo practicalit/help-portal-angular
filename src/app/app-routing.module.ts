@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
+import { RegisterComponent } from './components/member/register/register.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,9 @@ const routes: Routes = [
   },
   {
     path:"login", component: LoginComponent
+  },
+  {
+    path:"register", component: RegisterComponent, pathMatch:'full'
   }
 
 ];

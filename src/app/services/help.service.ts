@@ -4,26 +4,28 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 import { Help } from '../models/Help'; 
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HelpService {
+export class HelpService extends BaseService {
 
-  constructor(private authService: AuthenticationService, private http: HttpClient) { }
+  constructor(private authService: AuthenticationService, private http: HttpClient) {
+    super();
+   }
 
   /**
-   * Fetch the data from the remote server.
+   * Fetch the list of helps from the server.
    */
   public getHelps():Observable<Help[]> {
-    let headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.authService.getToken()}`
-      })
-    };
 
+    /* 
+     * This need to be refactored to be used in interceptor
+     */
+    this.getBasicHeader().headers.append('Authorization', `Bearer ${this.authService.getToken()}`);
     return this.http.get<Help[]>(
-      `${environment.server}${environment.helpListEndPoint}`, headers)
+      `${environment.server}${environment.helpListEndPoint}`, 
+      this.getBasicHeader())
   }
 }

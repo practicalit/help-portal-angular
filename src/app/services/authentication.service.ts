@@ -3,28 +3,25 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment'; 
+import { BaseService } from './base.service';
 
 /**
  * Authentication handler service.
  * 
- * @author Kaleb W. <kaleb@solutionladder.com>
+ * @author Practical IT <info@thepracticalit.com>
  * 
  */
 
 const CURRENT_USER = 'currentUser';
 
-const headers = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService extends BaseService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+   }
   
   /**
    * Getter and setter for the logged property.
@@ -39,7 +36,8 @@ export class AuthenticationService {
   public authenticate(email: String, password: String): Observable<any> {
     //server and end point are stored in the environment config
     return this.http.post<any>(
-      `${environment.server}${environment.authEndPoint}`, {"email": email, "password": password}, headers
+      `${environment.server}${environment.authEndPoint}`, 
+      {"email": email, "password": password}, this.getBasicHeader()
       );
   }
 
