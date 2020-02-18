@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted: Boolean = false;
-  loginFailed: Boolean = true;
+  loginFailed: Boolean = false;
+  //errorMessage:string ="please check your Email /Password !"
 
   constructor(
     private authService: AuthenticationService,
@@ -45,7 +46,8 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
-      return;
+      return; //console.log('Invalid Email/Password');
+
     }
 
     this.authService.authenticate(this.form.email.value, 
@@ -56,7 +58,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.loginFailed = true;
           this.authService.removeToken();
-        }
+          return ;           }
       });
   }
 

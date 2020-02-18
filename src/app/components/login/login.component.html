@@ -22,10 +22,11 @@
                       <div class="error-message" *ngIf="submitted && form.email.errors">Please provide the email address</div>
                     </div>
                     <div class="form-group">
-                      <input formControlName="password" [ngClass]="{'has-error': submitted && form.password.errors}"
+                      <input formControlName="password" required [ngClass]="{'has-error': submitted && form.password.errors}"
                       type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                      <div class="error-message" *ngIf="submitted && form.password.errors">Please provide the password</div>
-                    </div>
+                       <div class="error-message" *ngIf="submitted && form.password.errors ">Please provide the password</div> 
+                             <small class="text-danger" *ngIf="loginFailed">Invalid Email/Password</small>
+                    </div>                  
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
