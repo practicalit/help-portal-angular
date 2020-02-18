@@ -1,3 +1,6 @@
+
+import { MemberService } from './../../services/member.service';
+import { Member } from './../../models/Member';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
@@ -9,10 +12,15 @@ import { Router } from '@angular/router';
 })
 export class TopHeaderComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService, private route: Router) { }
+  constructor(private authService: AuthenticationService, private route: Router,) { }
 
-  ngOnInit() {
+  firstName: any = "";
+ lastName: any = "";
+
+  ngOnInit(){
+    this.populateFirstLast()
   }
+   
 
   /**
    * Take the current user to logout from the app
@@ -23,4 +31,10 @@ export class TopHeaderComponent implements OnInit {
     this.authService.removeToken();
     this.route.navigate(['/login']);
   }
+
+populateFirstLast(){
+this.firstName = this.authService.getFirstName();
+ this.lastName = this.authService.getLastName();
+}
+
 }

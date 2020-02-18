@@ -1,3 +1,4 @@
+import { Member } from './../../models/Member';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, Validator } from '@angular/forms';
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+     email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -46,10 +47,13 @@ export class LoginComponent implements OnInit {
 
     if (this.loginForm.invalid) {
       return;
+     
     }
 
     this.authService.authenticate(this.form.email.value, 
       this.form.password.value).subscribe(user => {
+       console.log(user);
+       console.log('getfirstname')
         if (user.success && user.object.token) {
           this.authService.storeToken(user);
           this.redirectToHome();
@@ -64,3 +68,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 }
+
+  
+
