@@ -32,6 +32,9 @@ export class TopHeaderComponent implements OnInit {
     this.route.navigate(['/login']);
   }
 
+/**
+ * Function to populate first and last name of the logger user
+ */
 populateFirstLast(){
 this.firstName = this.authService.getFirstName();
  this.lastName = this.authService.getLastName();

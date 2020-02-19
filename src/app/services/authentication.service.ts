@@ -75,7 +75,6 @@ export class AuthenticationService extends BaseService{
 /**
  *  Function to populate FirstName of the logger user
  */
-
   public getFirstName():String {
     if (this.logged) {
       let user = JSON.parse(localStorage.getItem(CURRENT_USER));
@@ -87,7 +86,6 @@ export class AuthenticationService extends BaseService{
 /**
  * Function to populate LastName of the logger user
  */
-
 public getLastName():String {
   if (this.logged) {
     let user = JSON.parse(localStorage.getItem(CURRENT_USER));

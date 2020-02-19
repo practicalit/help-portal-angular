@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.form.email.value, 
       this.form.password.value).subscribe(user => {
        console.log(user);
-       console.log('getfirstname')
         if (user.success && user.object.token) {
           this.authService.storeToken(user);
           this.redirectToHome();
