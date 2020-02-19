@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MemberService } from 'src/app/services/member.service';
 import { Member } from 'src/app/models/Member';
+import { Router } from '@angular/router';
 
 /**
  * Registration handler component
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     dateOfBirth: new FormControl('1990-09-01', Validators.required)
   });
 
-  constructor(private memberService: MemberService) { }
+  constructor(private memberService: MemberService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -50,8 +52,13 @@ export class RegisterComponent implements OnInit {
         }
         if (data.success) {
           this.success = true;
+          this.redirectToLogin();
         }
       }
     );
+  }
+
+  private redirectToLogin() {
+    this.router.navigate(['/login']);
   }
 }
