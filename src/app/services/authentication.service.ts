@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment'; 
 import { BaseService } from './base.service';
+//import { userInfo } from 'os';
 
 /**
  * Authentication handler service.
@@ -11,6 +12,8 @@ import { BaseService } from './base.service';
  * @author Practical IT <info@thepracticalit.com>
  * 
  */
+
+
 
 const CURRENT_USER = 'currentUser';
 
@@ -33,7 +36,7 @@ export class AuthenticationService extends BaseService{
     return localStorage.getItem(CURRENT_USER) != null;
   }
 
-  public authenticate(email: String, password: String): Observable<any> {
+  public authenticate(email: string, password: string): Observable<any> {
     //server and end point are stored in the environment config
     return this.http.post<any>(
       `${environment.server}${environment.authEndPoint}`, 
@@ -41,9 +44,9 @@ export class AuthenticationService extends BaseService{
       );
   }
 
-  public storeToken(user: any) {
+  public storeToken(user: any,) {
     console.log('********************');
-    console.log(user);
+   console.log(user);
     localStorage.setItem(CURRENT_USER, JSON.stringify(user));
   }
 
@@ -51,12 +54,44 @@ export class AuthenticationService extends BaseService{
     localStorage.removeItem(CURRENT_USER);
   }
   
-  public getToken():String {
+  public getToken():string {
     if (this.logged) {
       let user = JSON.parse(localStorage.getItem(CURRENT_USER));
       return user.object.token;
     }
 
-    return null;
+    return;
   }
+
+  public aut(email: string, password: string): Observable<any> {
+    //server and end point are stored in the environment config
+    return this.http.post<any>(
+      `${environment.server}${environment.authEndPoint}`, 
+      {"email": email, "password": password}, this.getBasicHeader()
+      );
+    }
+
+
+/**
+ *  Function to populate FirstName of the logger user
+ */
+  public getFirstName():string {
+    if (this.logged) {
+      let user = JSON.parse(localStorage.getItem(CURRENT_USER));
+      return user.object.firstName;
+    }
+      return null;
 }
+
+/**
+ * Function to populate LastName of the logger user
+ */
+public getLastName():string {
+  if (this.logged) {
+    let user = JSON.parse(localStorage.getItem(CURRENT_USER));
+    return user.object.lastName;
+  }
+   return null;
+}
+}
+
