@@ -17,11 +17,11 @@ export class RegisterComponent implements OnInit {
   success: Boolean = false;
 
   registrationForm: FormGroup = new FormGroup({
-   firstName: new FormControl('Henry',[Validators.required]),
-   lastName: new FormControl('Wang', [Validators.required]),
-    email: new FormControl('henry1@want.com',[Validators.email]),
-    password: new FormControl('121212', [Validators.required]),
-    dateOfBirth: new FormControl('1990-09-01', Validators.required)
+    firstName: new FormControl('',[Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    email: new FormControl('',[Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    dateOfBirth: new FormControl('', Validators.required)
   });
 
   constructor(private memberService: MemberService,
