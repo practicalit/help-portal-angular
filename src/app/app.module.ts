@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
+import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './components/member/register/register.compone
     LoginComponent,
     HomeComponent,
     HelpComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddFundComponent
   ],
   imports: [
     AppRoutingModule,
