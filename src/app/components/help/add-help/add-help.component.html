@@ -1,0 +1,22 @@
+<div class="help" (ngSubmit)="onSubmitRequest()">    
+    <h1>Help Request Forms</h1><br>
+    <label><h4>Title   </h4></label>
+    <input type="text" class="title"><br>
+    <br>
+    <label> <h4> Desciption   </h4></label>
+    <textarea name="comments" style="width:180px; height:50px;"></textarea><br>
+    <label><h5> Category  </h5></label><br>
+    <input type="checkbox">
+    <label for="advice">  Advice </label><br>
+    <input type="checkbox">
+    <label for="material">  Material  </label><br>
+    <input type="checkbox">
+    <label for="money">  Money  </label>
+
+        <!-- <input type="checkbox" ngFor ="let catagory of catagorys">{{catagory}} -->
+    <br>
+<label> <h5>  Due Date   </h5></label>
+    <input type="date"><br>
+        <br>
+    <button class="btn btn-primary">Submit Request</button>
+</div>
