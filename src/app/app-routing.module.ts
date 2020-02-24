@@ -11,9 +11,8 @@ import { RegisterComponent } from './components/member/register/register.compone
 
 const routes: Routes = [
   {
-    path:'', redirectTo: "home", pathMatch: 'full',
+    path:'', redirectTo: "home", pathMatch: 'full'
   },
-  
   {
     //Links for the logged user will be children of home component
     path:"home", component: HomeComponent, 
@@ -24,10 +23,8 @@ const routes: Routes = [
       {
         path:"help", component: HelpComponent
       }
-    
     ]
   },
- 
   {
     path:"login", component: LoginComponent
   },
@@ -38,9 +35,7 @@ const routes: Routes = [
   {
     path:"register", component: RegisterComponent, pathMatch:'full'
   },
-  
-]
-;
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
