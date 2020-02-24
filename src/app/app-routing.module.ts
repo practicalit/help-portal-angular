@@ -1,3 +1,4 @@
+import { ForgotPasswordComponent } from './components/member/forgot-password/forgot-password.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -7,10 +8,12 @@ import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
 
 
+
 const routes: Routes = [
   {
-    path:'', redirectTo: "home", pathMatch: 'full'
+    path:'', redirectTo: "home", pathMatch: 'full',
   },
+  
   {
     //Links for the logged user will be children of home component
     path:"home", component: HomeComponent, 
@@ -21,16 +24,23 @@ const routes: Routes = [
       {
         path:"help", component: HelpComponent
       }
+    
     ]
   },
+ 
   {
     path:"login", component: LoginComponent
   },
   {
+    //new add
+    path: "forgot-password", component: ForgotPasswordComponent
+  },
+  {
     path:"register", component: RegisterComponent, pathMatch:'full'
-  }
-
-];
+  },
+  
+]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
