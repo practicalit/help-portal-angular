@@ -8,6 +8,7 @@ import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
 import { AddHelpComponent } from './components/help/add-help/add-help.component';
 
+import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,9 @@ const routes: Routes = [
       },
       {
         path:"add-help" , component:AddHelpComponent
+      },
+      {
+        path:"add-fund", component: AddFundComponent
       }
     ]
   },
