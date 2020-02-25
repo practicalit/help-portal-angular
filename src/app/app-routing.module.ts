@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
+import { AddHelpComponent } from './components/help/add-help/add-help.component';
 
 
 
@@ -22,6 +23,9 @@ const routes: Routes = [
       },
       {
         path:"help", component: HelpComponent
+      },
+      {
+        path:"add-help" , component:AddHelpComponent
       }
     ]
   },

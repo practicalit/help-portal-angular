@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
 import { ForgotPasswordComponent } from './components/member/forgot-password/forgot-password.component';
+import { AddHelpComponent } from './components/help/add-help/add-help.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ForgotPasswordComponent } from './components/member/forgot-password/for
     HomeComponent,
     HelpComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AddHelpComponent
   ],
   imports: [
     AppRoutingModule,
