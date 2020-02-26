@@ -1,18 +1,88 @@
-    <div class="container">
-      <form>
-          <div class="row">
-            <h2>Payment</h2>
-            <label for="cname">Name on Card</label>
-            <input type="text">
-            <label for="ccnum">Credit Card Number</label>
-            <input type="text">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" date="expmonth">
-            <label for="expyear">Exp Year</label>
-            <input type="text">
-            <label for="cvv">CVV</label>
-            <input type="text">
+    
+    
+    <form class="needs-validation" novalidate>
+      <h1><b>Payment Information</b></h1>
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationTooltip01">Name on Card</label>
+          <input type="text" class="form-control" id="validationTooltip01" value="Name on card" required>
+          <div class="valid-tooltip">
           </div>
-        <button class="btn btn-primary">Submit</button>
-      </form>
+        </div>
+
+
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationTooltip03"><b>Card Numner</b></label>
+          <input type="text" class="form-control" id="validationTooltip03" required>
+          <div class="invalid-tooltip">
+            Please provide a card number.
+          </div>
+        </div>
+        
+        <div class="form-group CVV">
+          <label for="cvv">CVV</label>
+          <input type="text" class="form-control" id="cvv">
+      </div>
+      </div>
+      <div class="form-group" id="expiration-date">
+        <label>Expiration Date</label>
+        
+        <select>
+            <option value="01">January</option>
+            <option value="02">February </option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select> 
+        <select>
+            <option  value="16">2020</option>
+            <option value="17"> 2021</option>
+            <option value="18"> 2022</option>
+            <option value="19"> 2023</option>
+            <option value="20"> 2024</option>
+            <option value="21"> 2025</option>
+            <option value="17"> 2026</option>
+            <option value="18"> 2027</option>
+            <option value="19"> 2028</option>
+            <option value="20"> 2029</option>
+            <option value="21"> 2030</option>
+
+        </select>
     </div>
+
+      <div class="col-md-3 mb-3">
+        <label for="validationTooltip05"><b>Zip</b></label>
+        <input type="text" class="form-control" id="validationTooltip05" required>
+        <div class="invalid-tooltip">
+          Please provide a valid zip.
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" type="submit">Submit Payment</button>
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

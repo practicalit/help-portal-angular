@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-fund.component.css']
 })
 export class AddFundComponent implements OnInit {
+month:string='January.Feburary,March,April,May,June,July,August,September,October,November,December';
 
   constructor() { }
 
