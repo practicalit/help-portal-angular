@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: Boolean = false;
   loginFailed: Boolean = false;
-  //errorMessage:string ="please check your Email /Password !"
 
   constructor(
     private authService: AuthenticationService,
@@ -68,6 +67,3 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 }
-
-  
-

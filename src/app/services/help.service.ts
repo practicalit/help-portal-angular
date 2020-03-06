@@ -16,16 +16,46 @@ export class HelpService extends BaseService {
    }
 
   /**
-   * Fetch the list of helps from the server.
+   * Fetch the list of helps from the server and display them.
+   * @return Observable
    */
   public getHelps():Observable<Help[]> {
 
     /* 
      * This need to be refactored to be used in interceptor
      */
-    this.getBasicHeader().headers.append('Authorization', `Bearer ${this.authService.getToken()}`);
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+
     return this.http.get<Help[]>(
       `${environment.server}${environment.helpListEndPoint}`, 
-      this.getBasicHeader())
+      headers)
+  }
+
+  /**
+   * Method to handle creating new help request.
+   * @param help 
+   * @return Observable
+   */
+  public createHelp(help: Help): Observable<any> {
+    /*
+     * This has to be moved to the interceptor. We can't all the time
+     * add the token here and there..
+     */
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+
+    return this.http.post<any>(
+      `${environment.server}${environment.helpListEndPoint}`, 
+      help, headers
+      );
   }
 }

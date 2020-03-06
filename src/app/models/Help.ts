@@ -6,4 +6,6 @@ export class Help {
     title: string;
     dateCreated: Date;
     member?: Member;
+    helpType?:[];
+    categories?:[any];
 }
