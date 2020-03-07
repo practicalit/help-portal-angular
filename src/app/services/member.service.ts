@@ -34,4 +34,16 @@ export class MemberService extends BaseService{
       this.getBasicHeader()
     );
   }
+
+  /**
+   * Method to handle password reset
+   * @param email 
+   */
+  public resetPassword(email:string):Observable<any> {
+    return this.httpClient.post<any>(
+      `${environment.server}${environment.forgotPasswordEndPoint}`, 
+      {'email': email}, 
+      this.getBasicHeader()
+    );
+  }
 }
