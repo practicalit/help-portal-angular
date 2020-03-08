@@ -27,6 +27,7 @@
     "jquery": "3.4.1",
     "jquery.easing": "^1.4.1",
     "rxjs": "~6.4.0",
+    "stripe-angular": "^1.0.2",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

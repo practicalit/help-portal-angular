@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StripeModule} from 'stripe-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { RegisterComponent } from './components/member/register/register.compone
 import { ForgotPasswordComponent } from './components/member/forgot-password/forgot-password.component';
 import { AddHelpComponent } from './components/help/add-help/add-help.component';
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
+import { BalanceComponent } from './components/member/balance/balance.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +28,16 @@ import { AddFundComponent } from './components/help/add-fund/add-fund.component'
     RegisterComponent,
     ForgotPasswordComponent,
     AddHelpComponent,
-    AddFundComponent
+    AddFundComponent,
+    BalanceComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    [ StripeModule.forRoot("pk_test_fREbU3WRBD9u30BhtLihVNTz") ]
   ],
   providers: [],
   bootstrap: [AppComponent]

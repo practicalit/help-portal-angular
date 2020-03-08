@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/member/register/register.compone
 import { AddHelpComponent } from './components/help/add-help/add-help.component';
 
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
+import { BalanceComponent } from './components/member/balance/balance.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,9 @@ const routes: Routes = [
       },
       {
         path:"add-fund", component: AddFundComponent
+      },
+      {
+        path:"balance", component: BalanceComponent
       }
     ]
   },
