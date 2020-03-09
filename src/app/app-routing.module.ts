@@ -10,6 +10,8 @@ import { AddHelpComponent } from './components/help/add-help/add-help.component'
 
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 import { BalanceComponent } from './components/member/balance/balance.component';
+import { HelpDescriptionComponent } from './help-description/help-description.component';
+
 
 
 const routes: Routes = [
@@ -26,6 +28,7 @@ const routes: Routes = [
       {
         path:"help", component: HelpComponent
       },
+      
       {
         path:"add-help" , component:AddHelpComponent
       },
@@ -47,6 +50,9 @@ const routes: Routes = [
   {
     path:"register", component: RegisterComponent, pathMatch:'full'
   },
+  {
+    path:"help-description", component:HelpDescriptionComponent
+  }
 ];
 
 @NgModule({

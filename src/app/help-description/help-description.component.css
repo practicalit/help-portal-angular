@@ -1,0 +1,15 @@
+.form-control{
+    width: 60%;
+    align-content:right;
+
+}
+.comment{
+    margin-left: 160px;
+}
+.form-group{
+    display: inline;
+}
+.btn btn-primary{
+    margin-left: 180px;
+    position: absolute;
+}

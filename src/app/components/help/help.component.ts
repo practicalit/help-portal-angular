@@ -10,7 +10,9 @@ import { Help } from '../../models/Help';
 export class HelpComponent implements OnInit {
 
   helps: Help[];
-  constructor(private helpService: HelpService) { }
+  
+  constructor(
+    private helpService: HelpService) { }
 
   ngOnInit() {
     let today = new Date();
@@ -20,5 +22,9 @@ export class HelpComponent implements OnInit {
       }
     );
   }
-
+  // private redirectToHelpDescription() {
+  //   this.router.navigate(['/help-description']);
+  // }
+  
+ 
 }
