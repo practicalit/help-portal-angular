@@ -4,8 +4,9 @@ import { Member } from '../models/Member';
 import { environment } from '../../environments/environment'; 
 
 import { BaseService } from './base.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthenticationService } from './authentication.service';
 
 /**
  * @author Practical IT <info@thepracticalit.com>
@@ -18,7 +19,7 @@ import { Observable } from 'rxjs';
 })
 export class MemberService extends BaseService{
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
     super(); //this is calling the parent.
    }
 
@@ -32,6 +33,26 @@ export class MemberService extends BaseService{
       `${environment.server}${environment.memberEndPoint}`, 
       member, 
       this.getBasicHeader()
+    );
+  }
+
+  /**
+   * Get the remaining balance of the logged member.
+   */
+  public getBalance(): Observable<any> {
+    /* 
+     * This need to be refactored to be used in interceptor
+     */
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+
+    return this.httpClient.get<any>(
+      `${environment.server}${environment.balanceEndPoint}`,  
+      headers
     );
   }
 }

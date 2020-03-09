@@ -1,135 +1,45 @@
 
-              <div class="container">
-                <h1>Help Request Form</h1><br>
-                <form class="needs-validation" novalidate>
-                  <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                      <label for="validationCustom01">First name</label>
-                      <input type="text" class="form-control" id="validationCustom01" value="test" required>
-                      <div class="valid-feedback">
-                        
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="validationCustom02">Last name</label>
-                      <input type="text" class="form-control" id="validationCustom02" value="testlast" required>
-                      <div class="valid-feedback">
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="validationCustomUsername">Username</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        </div>
-                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                        <div class="invalid-feedback">
-                          Please choose a username.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<div class="container">
+  <h1>Request Help</h1><br>
+  <form class="user" [formGroup]="addHelp" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="title">Title</label>
+        <input formControlName="title" type="text" class="form-control" id="title" value="" placeholder="Your help title here" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea formControlName="message" rows=6 type="text" class="form-control" id="message"></textarea>
+    </div>
+    <div class="form-group">
+      <!-- this should not be hard-coded. It has to be c-->
+      <label for="category">Category</label>
+      <select formControlName="category" id="category" class="custom-select">
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.title}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="help_on">Type of help needed</label>
+    </div>
+    <div class="form-group">
+      <label formArrayName="typeOfHelp" *ngFor="let order of addHelp.controls.typeOfHelp.controls; let i = index">
 
-                  <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4">
-                      </div>
-                      <div class="form-group col-md-6">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress">Address</label>
-                      <input type="text" class="form-control" id="inputAddress" placeholder="">
-                    </div>
-
-                  <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                      <label for="validationCustom03">City</label>
-                      <input type="text" class="form-control" id="validationCustom03" required>
-                      <div class="invalid-feedback">
-                        Please provide a valid city.
-                      </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <label for="validationCustom04">State</label>
-                      <select class="custom-select" id="validationCustom04" required>
-                        <option selected disabled value="">Choose...</option>
-                        <option>...</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Please select a valid state.
-                      </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                      <label for="validationCustom05">Zip</label>
-                      <input type="text" class="form-control" id="validationCustom05" required>
-                      <div class="invalid-feedback">
-                        Please provide a valid zip.
-                      </div>
-                    </div>
-                  </div>
-                 <hr>
-                  <select class="custom-select">
-                    <option selected>Topic</option>
-                    <option value="1">Education</option>
-                    <option value="2">School</option>
-                    <option value="3">Legal</option>
-                    <option value="3">Transportation</option>
-                    <option value="3">Other</option>
-                  </select><br>
-
-                  <br>
-
-                  <p><b>Catagory</b></p>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                      Money
-                    </label>
-                  </div>
-                  <br>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      Advice
-                    </label>
-                  </div>
-                <br>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                      Material
-                    </label>
-                  </div>
-                 
-                   <br>
-
-                  <form>
-                    <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                    </div>
-                     </form>        
-                    <br>
- 
-                    <label> <h5> Date </h5></label>
-                    <input type= "date"><br>
-                        <br>
-                  <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                      <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                      </label>
-                      <div class="invalid-feedback">
-                        You must agree before submitting.
-                      </div>
-                    </div>
-                  </div>
-                  <button class="btn btn-primary" type="submit">Submit form</button>
-                </form>
-                
+        <div class="form-check">
+          <input [formControlName]="i" class="form-check-input" type="checkbox" >
+      
+          <label class="form-check-label" for="money">
+            {{helpType[i].title}}  
+          </label>
+        </div>
+      </label>
+    </div>
+    <div [ngClass]="{'alert alert-danger': invalidForm, 'alert alert-success': !invalidForm}" role="alert">
+      {{message}}
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary" type="submit">Post</button>
+    </div>
+  </form>
+  </div>
+  
