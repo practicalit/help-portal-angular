@@ -10,7 +10,8 @@ export const environment = {
   helpListEndPoint: '/api/help',
   memberEndPoint: '/api/member',
   depositEndPoint: '/api/contribution/deposit',
-  balanceEndPoint: '/api/contribution/balance'
+  balanceEndPoint: '/api/contribution/balance',
+  forgotPasswordEndPoint: '/api/member/forgot-password'
 };
 
 /*
