@@ -10,6 +10,7 @@ import { AddHelpComponent } from './components/help/add-help/add-help.component'
 
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 import { BalanceComponent } from './components/member/balance/balance.component';
+import { HelpFullDescriptionComponent } from './help-full-description/help-full-description.component';
 
 
 const routes: Routes = [
@@ -46,6 +47,9 @@ const routes: Routes = [
   },
   {
     path:"register", component: RegisterComponent, pathMatch:'full'
+  },
+  {
+    path: "help-full-description", component: HelpFullDescriptionComponent
   },
 ];
 
