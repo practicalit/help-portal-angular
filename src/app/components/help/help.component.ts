@@ -10,7 +10,7 @@ import { Help } from '../../models/Help';
 export class HelpComponent implements OnInit {
 
   helps: Help[];
-  
+  expanded = false;
   constructor(
     private helpService: HelpService) { }
 
@@ -25,6 +25,7 @@ export class HelpComponent implements OnInit {
   // private redirectToHelpDescription() {
   //   this.router.navigate(['/help-description']);
   // }
-  
- 
+  toggle(){
+    this.expanded = !this.expanded;
+}
 }
