@@ -1,4 +1,4 @@
-import { Member } from './../../models/Member';
+import { Member } from '../../../models/Member';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, Validator } from '@angular/forms';

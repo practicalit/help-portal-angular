@@ -2,7 +2,7 @@ import { ForgotPasswordComponent } from './components/member/forgot-password/for
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/member/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { HelpComponent } from './components/help/help.component';
 import { RegisterComponent } from './components/member/register/register.component';
