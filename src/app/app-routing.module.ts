@@ -11,6 +11,7 @@ import { AddHelpComponent } from './components/help/add-help/add-help.component'
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 import { BalanceComponent } from './components/member/balance/balance.component';
 import { HelpDescriptionComponent } from './components/help/help-description/help-description.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 
@@ -46,6 +47,9 @@ const routes: Routes = [
   {
     //new add
     path: "forgot-password", component: ForgotPasswordComponent
+  },
+  {
+    path:"password-reset" , component:PasswordResetComponent
   },
   {
     path:"register", component: RegisterComponent, pathMatch:'full'
