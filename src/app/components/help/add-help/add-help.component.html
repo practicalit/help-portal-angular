@@ -19,10 +19,16 @@
         <option *ngFor="let category of categories" value="{{category.id}}">{{category.title}}</option>
       </select>
     </div>
+    <br>
     <div class="form-group">
+      <h5> Do you need upload files ?  </h5>
+      <input type="file" #fileInput ng2FileSelect>
+</div>
+<br><br>
+    <div class="form-group">        
       <label for="help_on">Type of help needed</label>
-    </div>
-    <div class="form-group">
+          </div>
+        <div class="form-group">
       <label formArrayName="typeOfHelp" *ngFor="let order of addHelp.controls.typeOfHelp.controls; let i = index">
 
         <div class="form-check">
