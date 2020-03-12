@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { StripeToken, StripeSource } from "stripe-angular"
 import { PaymentService } from 'src/app/services/payment.service';
 import { Deposit } from 'src/app/models/Deposit';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-add-fund',
@@ -9,22 +11,27 @@ import { Deposit } from 'src/app/models/Deposit';
   styleUrls: ['./add-fund.component.css']
 })
 export class AddFundComponent implements OnInit {
+ 
+  constructor(private paymentService: PaymentService, private authService: AuthenticationService, private router: Router) {}
 
-  constructor(private paymentService: PaymentService) {
-
-  }
-
-  nameOnCard: string;
-  email: string;
+  firstName: any = "";
+  lastName: any = "";
+  email: any = "";
+  nameoncard:string;
   amount: number;
   message:string = null;
   isValid = true;
   submitted = false;
 
-  ngOnInit(){}
+  ngOnInit(){
+   this.populateFirstLast();
+    this.populateEmail();
+    
+  }
 
   extraData = {
-    "name": this.nameOnCard,
+    "first_name": this.firstName,
+    "last_name": this.lastName,
     "email": this.email,
     "address_city": "DC",
     "address_line1": "roader 12",
@@ -65,4 +72,12 @@ export class AddFundComponent implements OnInit {
   onStripeError( error:Error ){
     console.error('Stripe error', error)
   }
+  
+  populateFirstLast(){
+    this.firstName = this.authService.getFirstName();
+    this.lastName = this.authService.getLastName();
+  }
+populateEmail(){
+  this.email = this.authService.getEmail();
+}
 }

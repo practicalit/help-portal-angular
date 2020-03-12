@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment'; 
 import { BaseService } from './base.service';
-//import { userInfo } from 'os';
+
 
 /**
  * Authentication handler service.
@@ -93,5 +93,14 @@ public getLastName():string {
   }
    return null;
 }
+
+public getEmail():string {
+  if (this.logged) {
+    let user = JSON.parse(localStorage.getItem(CURRENT_USER));
+    return user.object.email;
+  }
+   return null;
+}
+
 }
 
