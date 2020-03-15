@@ -10,7 +10,7 @@
     </thead>
     <tbody *ngFor="let help of helps">
       <tr>
-        <td>{{help.title}}</td>
+        <td><a class ="nav-link" routerLink="/help-description" routerLinkActive="active"(click)="showFullTitle()"> {{help.title}}</a></td>
         <td>{{help.message}}</td>
         <td>{{help.member.firstName}}</td>
         <td>{{help.dateCreated | date}}</td>
