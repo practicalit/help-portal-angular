@@ -18,6 +18,7 @@ import { AddFundComponent } from './components/help/add-fund/add-fund.component'
 import { BalanceComponent } from './components/member/balance/balance.component';
 import { HelpDescriptionComponent } from './components/help/help-description/help-description.component'
 
+import { UserProfileComponent } from './components/member/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HelpDescriptionComponent } from './components/help/help-description/hel
     BalanceComponent,
     HelpDescriptionComponent,
     
+    UserProfileComponent
   ],
   imports: [
     AppRoutingModule,
