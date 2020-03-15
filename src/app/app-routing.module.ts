@@ -11,6 +11,7 @@ import { AddHelpComponent } from './components/help/add-help/add-help.component'
 import { AddFundComponent } from './components/help/add-fund/add-fund.component';
 import { BalanceComponent } from './components/member/balance/balance.component';
 import { HelpDescriptionComponent } from './components/help/help-description/help-description.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 import { UserProfileComponent } from './components/member/user-profile/user-profile.component';
 
@@ -44,6 +45,9 @@ const routes: Routes = [
       },
       {
         path: "user-profile", component: UserProfileComponent
+      },
+      {
+        path:"password-reset" , component:PasswordResetComponent
       }
     ]
   },
