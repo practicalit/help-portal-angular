@@ -14,24 +14,23 @@ export class AddFundComponent implements OnInit {
  
   constructor(private paymentService: PaymentService, private authService: AuthenticationService, private router: Router) {}
 
-  firstName: any = "";
-  lastName: any = "";
-  email: any = "";
-  nameoncard:string;
+  firstName: any;
+  lastName: any;
+  email: any;
+  nameOnCard:string;
   amount: number;
   message:string = null;
   isValid = true;
   submitted = false;
 
   ngOnInit(){
-   this.populateFirstLast();
+    this.populateFirstLast();
     this.populateEmail();
-    
+    this.nameOnCard = `${this.firstName} ${this.lastName}`;
   }
 
   extraData = {
-    "first_name": this.firstName,
-    "last_name": this.lastName,
+    "name": this.nameOnCard,
     "email": this.email,
     "address_city": "DC",
     "address_line1": "roader 12",
