@@ -37,6 +37,9 @@ const routes: Routes = [
       },
       {
         path:"balance", component: BalanceComponent
+      },
+      {
+        path:"help-description", component:HelpDescriptionComponent, pathMatch:'full'
       }
     ]
   },
@@ -49,9 +52,6 @@ const routes: Routes = [
   },
   {
     path:"register", component: RegisterComponent, pathMatch:'full'
-  },
-  {
-    path:"help-description", component:HelpDescriptionComponent
   }
 ];
 
