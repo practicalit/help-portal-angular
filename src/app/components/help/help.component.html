@@ -11,7 +11,7 @@
     <tbody *ngFor="let help of helps">
       <tr>
         <td><a class ="nav-link" routerLink="/home/help-description"> {{help.title}}</a></td>
-        <td>{{help.message}}</td>
+        <td>{{getFirstWords(20, help.message)}}</td>
         <td>{{help.member.firstName}}</td>
         <td>{{help.dateCreated | date}}</td>
       </tr>

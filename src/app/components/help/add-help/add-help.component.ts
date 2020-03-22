@@ -17,20 +17,20 @@ export class AddHelpComponent implements OnInit {
 
   //temporary hard-coded value. This has to be fetched from server.
   helpType = [
-    { id: 1, title: 'Money' },
-    { id: 2, title: 'Advice' },
-    { id: 3, title: 'Consultation' }
+    { id: 1, name: 'Money' },
+    { id: 2, name: 'Advice' },
+    { id: 3, name: 'Consultation' }
     ];
 
   //temporary hard-coded value. this has to be fetched from server.
   categories = [
-    { id: 1, title: 'Education' },
-    { id: 2, title: 'Family' },
-    { id: 3, title: 'Auto' }, 
-    { id: 4, title: 'Relation' },
-    { id: 5, title: 'Adjusting' },
-    { id: 6, title: 'Children' },
-    { id: 7, title: 'Assylum' }
+    { id: 1, name: 'Education' },
+    { id: 2, name: 'Family' },
+    { id: 3, name: 'Auto' }, 
+    { id: 4, name: 'Relation' },
+    { id: 5, name: 'Adjusting' },
+    { id: 6, name: 'Children' },
+    { id: 7, name: 'Asylum' }
   ];
 
   constructor(private formBuilder:FormBuilder, private helpService: HelpService) { }
@@ -43,6 +43,7 @@ export class AddHelpComponent implements OnInit {
        category: ['', Validators.required]
      });
      this.addCheckboxes();
+     this.populateLookups();
   }
 
   /**
@@ -88,6 +89,19 @@ export class AddHelpComponent implements OnInit {
           this.message = "You have successfully created the help topic. Good luck!"
         }
         console.log(help);
+      }
+    );
+  }
+
+  /**
+   * Read categories and help type and update hte local variables
+   */
+  private populateLookups() {
+    this.helpService.getHelpAndCategoryTypes().subscribe(
+      types => {
+        //the API returns both categories and help types
+        this.categories = types["object"].categories;
+        this.helpType = types["object"].helpTypes;
       }
     );
   }

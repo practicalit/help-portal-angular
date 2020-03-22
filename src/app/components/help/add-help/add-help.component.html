@@ -16,7 +16,7 @@
       <!-- this should not be hard-coded. It has to be c-->
       <label for="category">Category</label>
       <select formControlName="category" id="category" class="custom-select">
-        <option *ngFor="let category of categories" value="{{category.id}}">{{category.title}}</option>
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
       </select>
     </div>
     <br>
@@ -35,7 +35,7 @@
           <input [formControlName]="i" class="form-check-input" type="checkbox" >
       
           <label class="form-check-label" for="money">
-            {{helpType[i].title}}  
+            {{helpType[i].name}}  
           </label>
         </div>
       </label>
