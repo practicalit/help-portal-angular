@@ -37,6 +37,19 @@ export class MemberService extends BaseService{
   }
 
   /**
+   * Send the new member information to the server.
+   * @param member 
+   * @returns Observable<any>
+   */
+  public update(member: Member): Observable<any> {
+    return this.httpClient.put<any>(
+      `${environment.server}${environment.memberEndPoint}`, 
+      member, 
+      this.getHeaderWithAuth()
+    );
+  }
+
+  /**
    * Get the remaining balance of the logged member.
    */
   public getBalance(): Observable<any> {
@@ -66,5 +79,14 @@ export class MemberService extends BaseService{
       {'email': email}, 
       this.getBasicHeader()
     );
+  }
+
+  private getHeaderWithAuth() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
   }
 }
