@@ -11,7 +11,8 @@ export const environment = {
   memberEndPoint: '/api/member',
   depositEndPoint: '/api/contribution/deposit',
   balanceEndPoint: '/api/contribution/balance',
-  forgotPasswordEndPoint: '/api/member/forgot-password'
+  forgotPasswordEndPoint: '/api/member/forgot-password',
+  categoryAndHelpTypeEndPont: '/api/help/attributes'
 };
 
 /*

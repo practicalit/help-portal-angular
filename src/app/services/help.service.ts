@@ -58,4 +58,24 @@ export class HelpService extends BaseService {
       help, headers
       );
   }
+
+  /**
+   * Read help and category types from backend.
+   */
+  public getHelpAndCategoryTypes() {
+    //categoryAndHelpTypeEndPont
+        /* 
+     * This need to be refactored to be used in interceptor
+     */
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+
+    return this.http.get<Help[]>(
+      `${environment.server}${environment.categoryAndHelpTypeEndPont}`, 
+      headers)
+  }
 }

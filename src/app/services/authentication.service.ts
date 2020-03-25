@@ -12,9 +12,6 @@ import { BaseService } from './base.service';
  * @author Practical IT <info@thepracticalit.com>
  * 
  */
-
-
-
 const CURRENT_USER = 'currentUser';
 
 @Injectable({
