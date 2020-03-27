@@ -41,7 +41,7 @@ const routes: Routes = [
         path:"balance", component: BalanceComponent
       },
       {
-        path:"help-description", component:HelpDescriptionComponent, pathMatch:'full'
+        path:"help-description/:id", component:HelpDescriptionComponent, pathMatch:'full'
       },
       {
         path: "user-profile", component: UserProfileComponent

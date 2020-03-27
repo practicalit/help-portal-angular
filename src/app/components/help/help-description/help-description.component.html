@@ -1,11 +1,17 @@
-
-<form class="description">
-<h3>Full description help page</h3> <BR><BR>
-  <h2>Title :</h2> How to get health insurance
-  <br>
-  <h2>Category :</h2>
-  Advice
-  <br>
-  <h2>Type of help needed :</h2>
-  I would like to get a help on how to apply for health insurance for me and my kids
-</form>
+<div class="container">
+<div class="card border-primary mb-12" style="max-width: 100%;">
+  <div class="card-header">Submitted by {{detail.member.first_name}}</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{detail.title}}</h5>
+    <p class="card-text">{{detail.message}}</p>
+  </div>
+  <h5 class="card-title">Categories</h5>
+  <div class="text-primary" *ngFor="let category of detail.category">
+    <p class="">{{category.name}}</p>
+  </div>  
+  <h5 class="card-title">Help Type</h5>
+  <div class="text-primary" *ngFor="let type of detail.help_type">
+    <p class="">{{type.name}}</p>
+  </div>  
+</div>
+</div>

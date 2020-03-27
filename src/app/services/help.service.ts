@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 import { Help } from '../models/Help'; 
 import { BaseService } from './base.service';
+import { NullTemplateVisitor } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -77,5 +78,26 @@ export class HelpService extends BaseService {
     return this.http.get<Help[]>(
       `${environment.server}${environment.categoryAndHelpTypeEndPont}`, 
       headers)
+  }
+
+  /**
+   * 
+   * @param id 
+   * @return Observable
+   */
+  public getHelpDetail(id: number): Observable<any> {
+    //add validation if id is blank or invalid.
+    return this.http.get<any>(
+      `${environment.helpDetailEndPoint}`, 
+      this.getHeaderWithToken())
+  }
+
+  private getHeaderWithToken() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
   }
 }
