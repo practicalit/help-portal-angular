@@ -1,17 +1,21 @@
 <div class="container">
 <div class="card border-primary mb-12" style="max-width: 100%;">
-  <div class="card-header">Submitted by {{detail.member.first_name}}</div>
+  <div class="card-header">Submitted by {{detail?.member.firstName}}</div>
   <div class="card-body text-primary">
-    <h5 class="card-title">{{detail.title}}</h5>
-    <p class="card-text">{{detail.message}}</p>
+    <h5 class="card-title">{{detail?.title}}</h5>
+    <p class="card-text">{{detail?.message}}</p>
   </div>
   <h5 class="card-title">Categories</h5>
-  <div class="text-primary" *ngFor="let category of detail.category">
-    <p class="">{{category.name}}</p>
-  </div>  
+  <div *ngIf="detail?.categories.length > 0">
+    <div class="text-primary" *ngFor="let category of detail?.categories; trackBy: trackByFunction">
+      <p class="">{{category.name}}</p>
+    </div>  
+  </div>
   <h5 class="card-title">Help Type</h5>
-  <div class="text-primary" *ngFor="let type of detail.help_type">
-    <p class="">{{type.name}}</p>
-  </div>  
+  <div *ngIf="detail?.helpType.length > 0">
+    <div class="text-primary" *ngFor="let type of detail?.helpType; trackBy: trackByFunction">
+      <p class="">{{type.name}}</p>
+    </div>  
+  </div>
 </div>
 </div>

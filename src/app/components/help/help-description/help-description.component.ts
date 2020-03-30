@@ -20,4 +20,14 @@ export class HelpDescriptionComponent implements OnInit {
       detail => this.detail = detail
     );
   }
+
+  /**
+   * Added for performance purposes 
+   * 
+   * @param @index
+   * @param @item 
+   */
+  trackByFunction(index, item) {
+    return index;
+  }
 }

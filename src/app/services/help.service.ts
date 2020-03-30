@@ -33,7 +33,7 @@ export class HelpService extends BaseService {
     };
 
     return this.http.get<Help[]>(
-      `${environment.server}${environment.helpListEndPoint}`, 
+      `${environment.server}${environment.helpEndPoint}`, 
       headers)
   }
 
@@ -55,7 +55,7 @@ export class HelpService extends BaseService {
     };
 
     return this.http.post<any>(
-      `${environment.server}${environment.helpListEndPoint}`, 
+      `${environment.server}${environment.helpEndPoint}`, 
       help, headers
       );
   }
@@ -88,7 +88,7 @@ export class HelpService extends BaseService {
   public getHelpDetail(id: number): Observable<any> {
     //add validation if id is blank or invalid.
     return this.http.get<any>(
-      `${environment.helpDetailEndPoint}`, 
+      `${environment.server}${environment.helpEndPoint}/${id}`, 
       this.getHeaderWithToken())
   }
 

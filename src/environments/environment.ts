@@ -7,13 +7,12 @@ export const environment = {
   //server: 'http://localhost:8085',
   server:'https://ethio-help.herokuapp.com',
   authEndPoint: '/api/member/authenticate',
-  helpListEndPoint: '/api/help',
+  helpEndPoint: '/api/help',
   memberEndPoint: '/api/member',
   depositEndPoint: '/api/contribution/deposit',
   balanceEndPoint: '/api/contribution/balance',
   forgotPasswordEndPoint: '/api/member/forgot-password',
   categoryAndHelpTypeEndPont: '/api/help/attributes',
-  helpDetailEndPoint: '/assets/data/help-detail.json'
 };
 
 /*
