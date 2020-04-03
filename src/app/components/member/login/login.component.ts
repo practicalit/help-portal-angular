@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: Boolean = false;
   loginFailed: Boolean = false;
-
+  showSppinning: Boolean =false;
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
    */
   onSubmit() {
     this.submitted = true;
-
+    this.showSppinning = true;
     if (this.loginForm.invalid) {
       return;
      
@@ -56,6 +56,7 @@ export class LoginComponent implements OnInit {
         if (user.success && user.object.token) {
           this.authService.storeToken(user);
           this.redirectToHome();
+          this.showSppinning = true;
         } else {
           this.loginFailed = true;
           this.authService.removeToken();
