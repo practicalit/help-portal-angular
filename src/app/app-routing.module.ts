@@ -14,6 +14,7 @@ import { HelpDescriptionComponent } from './components/help/help-description/hel
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 import { UserProfileComponent } from './components/member/user-profile/user-profile.component';
+import { MemberProfileComponent } from './components/member/member-profile/member-profile.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,9 @@ const routes: Routes = [
       },
       {
         path: "user-profile", component: UserProfileComponent
+      },
+      {
+        path: "member-profile", component: MemberProfileComponent
       },
       {
         path:"password-reset" , component:PasswordResetComponent
