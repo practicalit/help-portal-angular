@@ -18,7 +18,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class MemberService extends BaseService{
-
+member:Member;
   constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
     super(); //this is calling the parent.
    }
@@ -75,7 +75,7 @@ export class MemberService extends BaseService{
    */
   public resetPassword(email:string):Observable<any> {
     return this.httpClient.post<any>(
-      `${environment.server}${environment.forgotPasswordEndPoint}`, 
+      `${environment.server}${environment.forgotPasswordEndPoint}/[id]`, 
       {'email': email}, 
       this.getBasicHeader()
     );
@@ -89,4 +89,30 @@ export class MemberService extends BaseService{
       })
     };
   }
+   public getMemberProfile(): Observable<any> {
+    return this.httpClient.get<any>(
+       `${environment.server}${environment.memberProfileEndPoint}`,
+      this.getHeaderWithToken()) 
+    }
+
+   private getHeaderWithToken() {
+   return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+       })
+    };
+   }
+
+  // let headers = {
+  //   headers: new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Bearer ${this.authService.getToken()}`
+  //   })
+  // }; return this.http.get<Help[]>(
+  //   `${environment.server}${environment.helpListEndPoint}`, 
+    
+  //   headers)
+  // }
+
 }
