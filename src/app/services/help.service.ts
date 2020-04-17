@@ -110,7 +110,6 @@ export class HelpService extends BaseService {
     };
     let c = {"help":{"id":"1"}, "comment": "My Comment here","resource":{"id":1}};
     return this.http.post<any>(
-     //'http://localhost:4200/home/help/comments',
      `${environment.server}${environment.helpDescriptionCommentEndPoint}`,
      c,headers
       );

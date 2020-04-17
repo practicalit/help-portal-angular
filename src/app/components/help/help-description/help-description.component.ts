@@ -15,6 +15,7 @@ export class HelpDescriptionComponent implements OnInit {
   comment: string;
   resource: any;
   help: any;
+  c: Comment;
   
   constructor(private helpService: HelpService, private route: ActivatedRoute) { }
 
@@ -36,12 +37,13 @@ export class HelpDescriptionComponent implements OnInit {
     return index;
   }
   saveComment(){    
-     let comments: Comment = {'help': this.help, 'comment': this.comment ,'resource':this.resource}; 
-     console.log(comments);    
-     this.saveComments = true;
-     this.helpService.postComment(comments)
-     .subscribe(
-      (res) => console.log(res)   
-    );  
-  }
+    let c = {"help":{"id":"1"}, "comment": "My Comment here","resource":{"id":1}};
+    //let comments: Comment = {'help': this.help, 'comment': this.comment ,'resource':this.resource}; 
+    console.log(c);    
+    this.saveComments = true;
+    this.helpService.postComment(this.c)
+    .subscribe(
+     (res) => console.log(res)   
+   );  
+ }
 }
