@@ -12,4 +12,5 @@ export class Member {
     password?: String;
     dateCreated?: Date;
     dateOfBirth?: Date;
+    gender: string;
 }

@@ -24,7 +24,13 @@
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
         <input formControlName="lastName" name="" class="form-control" placeholder="Full name" type="text">
-    </div>
+	</div>
+	<div class="form-group  input-group">
+        <span class="form-control input-group-text"><i class="fa fa-user"></i>Gender</span>
+        <label class="form-control">
+          <input type="radio" name="gender" id="M"> M <input type="radio" name="gender" id="F"> F
+        </label>
+      </div>
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
@@ -53,7 +59,7 @@
         <button type="button" class="close" data-dismiss="alert">&times;</button>
     </div>                               
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!registrationForm.valid"> Create Account  </button>
+        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
     </div> <!-- form-group// -->   
     <p class="text-center">Have an account? <a routerLink="/login">Log In</a> </p>                                                                 
 </form>
