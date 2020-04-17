@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 import { Help } from '../models/Help'; 
 import { BaseService } from './base.service';
-import { NullTemplateVisitor } from '@angular/compiler';
-
+import { Comment } from '../models/Comment'; 
 @Injectable({
   providedIn: 'root'
 })
@@ -93,6 +92,7 @@ export class HelpService extends BaseService {
   }
 
   private getHeaderWithToken() {
+
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -100,4 +100,20 @@ export class HelpService extends BaseService {
       })
     };
   }
+  // help-Description 
+  public postComment(comment: Comment): Observable<any> {
+    let headers = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+    let c = {"help":{"id":"1"}, "comment": "My Comment here","resource":{"id":1}};
+    return this.http.post<any>(
+     //'http://localhost:4200/home/help/comments',
+     `${environment.server}${environment.helpDescriptionCommentEndPoint}`,
+     c,headers
+      );
+  }
+
 }

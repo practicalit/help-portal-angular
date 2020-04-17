@@ -8,4 +8,5 @@ export class Help {
     member?: Member;
     helpType?:[];
     categories?:[any];
+  
 }
