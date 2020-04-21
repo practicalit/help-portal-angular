@@ -29,7 +29,7 @@
       <label for="help_on">Type of help needed</label>
           </div>
         <div class="form-group">
-      <label formArrayName="typeOfHelp" *ngFor="let order of addHelp.controls.typeOfHelp.controls; let i = index">
+      <label formArrayName="typeOfHelp" *ngFor="let help of helpType; let i = index">
 
         <div class="form-check">
           <input [formControlName]="i" class="form-check-input" type="checkbox" >

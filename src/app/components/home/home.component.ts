@@ -10,11 +10,13 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class HomeComponent implements OnInit {
 
   title = "Help Portal";
+  year = null; 
 
   constructor(private authService:AuthenticationService,
      private router: Router) { }
 
   ngOnInit() {
+    this.year = new Date();//initialize the date
     this.redirectToLogin();
   }
 

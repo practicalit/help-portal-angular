@@ -16,22 +16,10 @@ export class AddHelpComponent implements OnInit {
   message:string = null;
 
   //temporary hard-coded value. This has to be fetched from server.
-  helpType = [
-    { id: 1, name: 'Money' },
-    { id: 2, name: 'Advice' },
-    { id: 3, name: 'Consultation' }
-    ];
+  helpType = [];
 
   //temporary hard-coded value. this has to be fetched from server.
-  categories = [
-    { id: 1, name: 'Education' },
-    { id: 2, name: 'Family' },
-    { id: 3, name: 'Auto' }, 
-    { id: 4, name: 'Relation' },
-    { id: 5, name: 'Adjusting' },
-    { id: 6, name: 'Children' },
-    { id: 7, name: 'Asylum' }
-  ];
+  categories = [];
 
   constructor(private formBuilder:FormBuilder, private helpService: HelpService) { }
 
@@ -42,7 +30,6 @@ export class AddHelpComponent implements OnInit {
        typeOfHelp: new FormArray([]),
        category: ['', Validators.required]
      });
-     this.addCheckboxes();
      this.populateLookups();
   }
 
@@ -99,9 +86,11 @@ export class AddHelpComponent implements OnInit {
   private populateLookups() {
     this.helpService.getHelpAndCategoryTypes().subscribe(
       types => {
+        console.log(types);
         //the API returns both categories and help types
         this.categories = types["object"].categories;
         this.helpType = types["object"].helpTypes;
+        this.addCheckboxes();
       }
     );
   }

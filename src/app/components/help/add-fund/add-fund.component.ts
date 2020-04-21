@@ -22,6 +22,7 @@ export class AddFundComponent implements OnInit {
   message:string = null;
   isValid = true;
   submitted = false;
+  invalidError = null;
 
   ngOnInit(){
     this.populateFirstLast();
