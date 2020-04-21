@@ -37,7 +37,7 @@ export class AddFundComponent implements OnInit {
     "address_line1": "roader 12",
     "address_line2": "234",
     "address_state": "MD",
-    "address_zip": "20910"
+    "address_zip": "20009"
   }
 
   onStripeInvalid( error:Error ){
