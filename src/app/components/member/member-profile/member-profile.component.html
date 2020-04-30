@@ -27,13 +27,7 @@
               </ul>
               <div class="tab-content ml-1" id="myTabContent">
                 <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                  <div class="row">
-                    <div class="col-sm-3 col-md-2 col-5">
-                      <label style="font-weight:bold;">ID</label>
-                    </div>
-                    <div class="col-md-8 col-6">{{member.id}} </div>
-                  </div>
-                  <hr />
+
                   <div class="row">
                     <div class="col-sm-3 col-md-2 col-5">
                       <label style="font-weight:bold;">First Name</label>
@@ -58,9 +52,9 @@
                   <hr />
                   <div class="row">
                     <div class="col-sm-3 col-md-2 col-5">
-                      <label style="font-weight:bold;">DateOfBirth</label>
+                      <label style="font-weight:bold;">Date of Birth</label>
                     </div>
-                    <div class="col-md-8 col-6"> {{member.dateOfBirth}} </div>
+                    <div class="col-md-8 col-6"> {{member.dateOfBirth | date: "MM-dd-y"}} </div>
                   </div>
                   <hr />
                   <div class="row">
@@ -72,9 +66,9 @@
                   <hr />
                   <div class="row">
                     <div class="col-sm-3 col-md-2 col-5">
-                      <label style="font-weight:bold;">DateCreated</label>
+                      <label style="font-weight:bold;">Member Since</label>
                     </div>
-                    <div class="col-md-8 col-6">{{member.dateCreated}} </div>
+                    <div class="col-md-8 col-6">{{member.dateCreated | date: "MMM y"}} </div>
                   </div>
                   <hr />
                 </div>
