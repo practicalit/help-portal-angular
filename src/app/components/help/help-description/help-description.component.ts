@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HelpDescriptionComponent implements OnInit {
   
+  /*
+   *this is the id of the help we will be looking for the detail.
+   */
   id: number;
   detail: any;
 
