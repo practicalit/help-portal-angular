@@ -10,6 +10,7 @@ import { Comment } from '../models/Comment';
   providedIn: 'root'
 })
 export class HelpService extends BaseService {
+  id: any;
 
   constructor(private authService: AuthenticationService, private http: HttpClient) {
     super();
@@ -108,10 +109,10 @@ export class HelpService extends BaseService {
         'Authorization': `Bearer ${this.authService.getToken()}`
       })
     };
-    let c = {"help":{"id":"1"}, "comment": "My Comment here","resource":{"id":1}};
+    let comments = {"help":{"id":"1"}, "comment": "My Comment here","resource":{"id":1}};
     return this.http.post<any>(
      `${environment.server}${environment.helpDescriptionCommentEndPoint}`,
-     c,headers
+     comments,headers
       );
   }
 

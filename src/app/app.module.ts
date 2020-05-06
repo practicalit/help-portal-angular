@@ -21,6 +21,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 
 import { UserProfileComponent } from './components/member/user-profile/user-profile.component';
 import { MemberProfileComponent } from './components/member/member-profile/member-profile.component';
+import { CommentComponent } from './components/help/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { MemberProfileComponent } from './components/member/member-profile/membe
     
     UserProfileComponent,
     
-    MemberProfileComponent
+    MemberProfileComponent,
+    
+    CommentComponent
   ],
   imports: [
     AppRoutingModule,

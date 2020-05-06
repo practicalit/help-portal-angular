@@ -3,3 +3,13 @@
     text-align: left;
     width: auto;
 }
+.btn btn-primary{
+    text-align: center;
+    position: relative;
+    
+}
+.bld{
+font-style: oblique;
+color: blue;
+font-stretch: narrower; 
+}

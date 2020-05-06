@@ -19,21 +19,11 @@
       <p class="">{{type.name}}</p>
     </div>  
   </div>
+  </div>
 </div>
+<hr>
+<h4 class="bld">Would you like to add a comment ?</h4>
+<div>
+  <!--comment component will be added here-->
+  <app-comment [helpId]="id"></app-comment>
 </div>
-<br>
-<form >
-<div class="col-md-8">
-  <h3>Comments</h3>  
-<h4 class ="text-success" style="text-align: center" *ngIf="saveComments">
-  Successfully posted your comment !!</h4>
-<textarea name="comment" ngModel class="form-control md-3" rows="5" id="comment"
- [(ngModel)]="comment" placeholder="Your Comment Please....." ></textarea> 
-</div> 
-
-<br>
-<div class="container" style="text-align: center">
-  
-<button class="btn btn-primary" (click)="saveComment()">Save Comment</button><br>
-</div>
-</form>
