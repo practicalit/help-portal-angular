@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', [Validators.required]),
     email: new FormControl('',[Validators.email]),
     password: new FormControl('', [Validators.required]),
-    dateOfBirth: new FormControl('', Validators.required)
+    dateOfBirth: new FormControl('', Validators.required),
+    gender: new FormControl('', Validators.required)
   });
 
   constructor(private memberService: MemberService,
@@ -41,7 +42,8 @@ export class RegisterComponent implements OnInit {
       'lastName': this.registrationForm.get('lastName').value,
       'email': this.registrationForm.get('email').value,
       'dateOfBirth': this.registrationForm.get('dateOfBirth').value,
-      'password': this.registrationForm.get('password').value
+      'password': this.registrationForm.get('password').value,
+      'gender': this.registrationForm.get('gender').value
     }
     
     this.memberService.save(member).subscribe( 
