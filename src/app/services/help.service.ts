@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
 import { Help } from '../models/Help'; 
 import { BaseService } from './base.service';
-import { Comment } from '../models/Comment'; 
+import { Comment } from '../models/comment'; 
 @Injectable({
   providedIn: 'root'
 })
