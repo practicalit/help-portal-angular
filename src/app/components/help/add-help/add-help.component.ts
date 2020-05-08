@@ -1,28 +1,43 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, Validator, FormArray } from '@angular/forms';
 import { HelpService } from 'src/app/services/help.service';
 import { Help } from 'src/app/models/Help';
-
 @Component({
   selector: 'app-add-help',
   templateUrl: './add-help.component.html',
   styleUrls: ['./add-help.component.css']
 })
 export class AddHelpComponent implements OnInit {
-
   addHelp: FormGroup;
   submitted: Boolean = false; //initialize the form with no submission hence false
   invalidForm: Boolean = false; //initially the user hasn't submitted anything.
   message:string = null;
-
   //temporary hard-coded value. This has to be fetched from server.
+<<<<<<< HEAD
   helpType = [];
 
   //temporary hard-coded value. this has to be fetched from server.
   categories = [];
 
+=======
+  helpType = [
+    { id: 1, name: 'Money' },
+    { id: 2, name: 'Advice' },
+    { id: 3, name: 'Consultation' }
+    ];
+  //temporary hard-coded value. this has to be fetched from server.
+  categories = [
+    { id: 1, name: 'Education' },
+    { id: 2, name: 'Family' },
+    { id: 3, name: 'Auto' }, 
+    { id: 4, name: 'Relation' },
+    { id: 5, name: 'Adjusting' },
+    { id: 6, name: 'Children' },
+    { id: 7, name: 'Asylum' }
+  ];
+>>>>>>> feature/Adding-commentBox-helpDetail-page
   constructor(private formBuilder:FormBuilder, private helpService: HelpService) { }
-
   ngOnInit() { 
     this.addHelp = this.formBuilder.group({
       title: ['', Validators.required],
@@ -32,7 +47,6 @@ export class AddHelpComponent implements OnInit {
      });
      this.populateLookups();
   }
-
   /**
    * Populate the checkboxes.
    */
@@ -42,30 +56,25 @@ export class AddHelpComponent implements OnInit {
     (this.addHelp.controls.typeOfHelp as FormArray).push(control);
     });
   }
-  
   /**
    * Method to be called when the user submits the help create form
    */
   onSubmit() {
     this.submitted = true;
-
     //check if all the mandatory values are provided.
     if (this.addHelp.invalid) {
       this.invalidForm = true;
       this.message = "Please check if you have provided all the values";
       return;
     }
-
     const typeOfHelpNeeded = this.addHelp.value.typeOfHelp
       .map((v, i) => v ? {"id": this.helpType[i].id} : null)
       .filter(v => v !== null);
-    
     let help:Help = new Help();//create the object to be sent to server.
     help.title = this.addHelp.controls.title.value;
     help.message = this.addHelp.controls.message.value;
     help.helpType = typeOfHelpNeeded;
     help.categories = [{"id": this.addHelp.controls.category.value}];//formalize
-
     /*
      * send the request and wait for the update.
      */
@@ -79,7 +88,6 @@ export class AddHelpComponent implements OnInit {
       }
     );
   }
-
   /**
    * Read categories and help type and update hte local variables
    */

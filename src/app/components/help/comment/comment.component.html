@@ -1,0 +1,20 @@
+
+<div>
+  <form>
+      <!-- test form for display-->
+      <div>
+          <textarea type ="textarea" id="something"
+           name= "comment" [(ngModel)]="comment" rows="5"
+           ngModel class="form-control md-3" 
+           placeholder="Comments..."></textarea>
+      </div>
+      <div>
+        <small class ="text-success" style="text-align: center" *ngIf="successMessage">
+          Thanks for your time , Successfully commented !!</small>
+      </div>
+      <br>
+      <div>
+          <button class="btn btn-primary" (click)="sendComment()">Submit</button>
+      </div>
+  </form>
+</div>
