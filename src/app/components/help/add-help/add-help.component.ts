@@ -14,29 +14,11 @@ export class AddHelpComponent implements OnInit {
   invalidForm: Boolean = false; //initially the user hasn't submitted anything.
   message:string = null;
   //temporary hard-coded value. This has to be fetched from server.
-<<<<<<< HEAD
   helpType = [];
 
   //temporary hard-coded value. this has to be fetched from server.
   categories = [];
 
-=======
-  helpType = [
-    { id: 1, name: 'Money' },
-    { id: 2, name: 'Advice' },
-    { id: 3, name: 'Consultation' }
-    ];
-  //temporary hard-coded value. this has to be fetched from server.
-  categories = [
-    { id: 1, name: 'Education' },
-    { id: 2, name: 'Family' },
-    { id: 3, name: 'Auto' }, 
-    { id: 4, name: 'Relation' },
-    { id: 5, name: 'Adjusting' },
-    { id: 6, name: 'Children' },
-    { id: 7, name: 'Asylum' }
-  ];
->>>>>>> feature/Adding-commentBox-helpDetail-page
   constructor(private formBuilder:FormBuilder, private helpService: HelpService) { }
   ngOnInit() { 
     this.addHelp = this.formBuilder.group({
