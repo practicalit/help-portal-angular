@@ -50,7 +50,7 @@ const routes: Routes = [
         path: "user-profile", component: UserProfileComponent
       },
       {
-        path: "member-profile", component: MemberProfileComponent
+        path: "member-profile/:memberId", component: MemberProfileComponent
       },
       {
         path:"password-reset" , component:PasswordResetComponent

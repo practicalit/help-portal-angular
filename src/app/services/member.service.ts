@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Member } from '../models/Member';
 
-import { environment } from '../../environments/environment'; 
+import { environment } from '../../environments/environment';
 
 import { BaseService } from './base.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,11 +17,11 @@ import { AuthenticationService } from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class MemberService extends BaseService{
+export class MemberService extends BaseService {
 
   constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
     super(); //this is calling the parent.
-   }
+  }
 
   /**
    * Send the new member information to the server.
@@ -30,8 +30,8 @@ export class MemberService extends BaseService{
    */
   public save(member: Member): Observable<any> {
     return this.httpClient.post<any>(
-      `${environment.server}${environment.memberEndPoint}`, 
-      member, 
+      `${environment.server}${environment.memberEndPoint}`,
+      member,
       this.getBasicHeader()
     );
   }
@@ -43,8 +43,8 @@ export class MemberService extends BaseService{
    */
   public update(member: Member): Observable<any> {
     return this.httpClient.put<any>(
-      `${environment.server}${environment.memberEndPoint}`, 
-      member, 
+      `${environment.server}${environment.memberEndPoint}`,
+      member,
       this.getHeaderWithAuth()
     );
   }
@@ -64,24 +64,38 @@ export class MemberService extends BaseService{
     };
 
     return this.httpClient.get<any>(
-      `${environment.server}${environment.balanceEndPoint}`,  
+      `${environment.server}${environment.balanceEndPoint}`,
       headers
     );
   }
-  
+
   /*
    * Method to handle password reset
    * @param email 
    */
-  public resetPassword(email:string):Observable<any> {
+  public resetPassword(email: string): Observable<any> {
     return this.httpClient.post<any>(
-      `${environment.server}${environment.forgotPasswordEndPoint}`, 
-      {'email': email}, 
+      `${environment.server}${environment.forgotPasswordEndPoint}`,
+      { 'email': email },
       this.getBasicHeader()
     );
   }
 
   private getHeaderWithAuth() {
+    return {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.authService.getToken()}`
+      })
+    };
+  }
+  public getMemberProfile(id: number): Observable<any> {
+    return this.httpClient.get<any>(
+      `${environment.server}${environment.memberEndPoint}/${id}`,
+      this.getHeaderWithToken())
+  }
+
+  private getHeaderWithToken() {
     return {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
