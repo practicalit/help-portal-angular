@@ -44,21 +44,24 @@ export class LoginComponent implements OnInit {
    */
   onSubmit() {
     this.submitted = true;
-    this.showSppinning = true;
+   
     if (this.loginForm.invalid) {
+      
       return;
-     
+      
     }
-
+    this.showSppinning = true;
     this.authService.authenticate(this.form.email.value, 
       this.form.password.value).subscribe(user => {
        console.log(user);
         if (user.success && user.object.token) {
           this.authService.storeToken(user);
           this.redirectToHome();
-          this.showSppinning = true;
+          
         } else {
+          
           this.loginFailed = true;
+          this.showSppinning = false;
           this.authService.removeToken();
           return ;           }
       });
