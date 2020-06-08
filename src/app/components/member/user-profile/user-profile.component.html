@@ -17,17 +17,20 @@
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <form [formGroup]="updateForm" (ngSubmit)="updateProfile()">
                             <div class="form-group">
-                              <label for="firstName">First Name</label>
-                              <input formControlName="firstName" type="text" #first class="form-control" id="firstName">
+                                <label for="firstName">First Name</label>
+                                <input formControlName="firstName" type="text" #first class="form-control is-invalid" id="firstName">
+                                <small class="text-danger"> First name is required </small> 
                             </div>
-                            <div class="form-group">
-                              <label for="lastName">Last Name</label>
-                              <input formControlName="lastName" type="text" #last class="form-control" id="lastName">
-                            </div>
+                            <div class="form-group" [class.has-error]="lastNameControl.invalid && lastNameControl.touched">
+                            <label for="lastName" class="control-lable"> Last Name </label>
+                            <input formControlName="lastName" type="text" #last class="form-control is-invalid" id="lastName">
+                            <small class="text-danger"> Last name is required </small>
+                          </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input formControlName="email" type="text" #last class="form-control" id="email">
-                              </div>                            
+                                <input formControlName="email" [ngClass]="{'has-error': submitted && form.email.errors}" type="text" #last class="form-control is-invalid" id="Email"> 
+                                <small class="text-danger"> Email is required </small>
+                              </div>                         
                             <div [ngClass]="{'alert alert-danger': submitted && !isValid, 'alert alert-success': submitted && isValid}" role="alert">
                                 {{message}}
                             </div>
