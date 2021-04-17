@@ -1,6 +1,11 @@
+import { HttpClientModule } from '@angular/common/http';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AddFundComponent } from './add-fund.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { StripeModule } from 'stripe-angular';
 
 describe('AddFundComponent', () => {
   let component: AddFundComponent;
@@ -8,7 +13,15 @@ describe('AddFundComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddFundComponent ]
+      declarations: [ AddFundComponent ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+          BrowserModule,
+          FormsModule,
+    [ StripeModule.forRoot("pk_test_fREbU3WRBD9u30BhtLihVNTz") ]
+      ]
     })
     .compileComponents();
   }));

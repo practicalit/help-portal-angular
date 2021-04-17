@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: Boolean = false;
   loginFailed: Boolean = false;
-  showSppinning: Boolean =false;
+  showSppinning: Boolean = false;
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
     this.showSppinning = true;
     if (this.loginForm.invalid) {
       return;
-     
+
     }
 
-    this.authService.authenticate(this.form.email.value, 
+    this.authService.authenticate(this.form.email.value,
       this.form.password.value).subscribe(user => {
        console.log(user);
         if (user.success && user.object.token) {

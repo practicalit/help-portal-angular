@@ -11,31 +11,31 @@ export class CommentComponent implements OnInit {
    /*
    * This is the id of the help detail tha comes from the parent
    * you can now have the id that you will use to send to the server.
-   * For the new component of the comment, the only thing you will miss is the 
+   * For the new component of the comment, the only thing you will miss is the
    * id of the help and now you have it locally as helpId.
-   * 
+   *
    * You can then do whatever you want with it. You can collect the comment
    * and then send it to the server along with helpId
    */
-  successMessage:boolean=false;
-  message:string = "Thank you for Commenting Us !!!";
+  successMessage = false;
+  message = 'Thank you for Commenting Us !!!';
   comment: Comment;
   @Input() helpId: number;
   constructor(private helpService: HelpService) { }
 
   ngOnInit() {
-    
+
   }
-  sendComment(){    
+  sendComment() {
     this.successMessage = true;
-    let comments = {"help":{"id":this.helpId}, "comment": this.comment ,"resource":{"IDs":this.helpId}}; 
-    console.log(comments) ;   
+    const comments = {help: {id: this.helpId}, comment: this.comment , resource: {IDs: this.helpId}};
+    console.log(comments) ;
     this.helpService.postComment(this.id)
     .subscribe(
-     (comment)=> comment = comment   
-  );  
- }  
+     (comment) => comment = comment
+  );
+ }
 
 }
- 
+
 

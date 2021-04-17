@@ -13,7 +13,7 @@ export const environment = {
   balanceEndPoint: '/api/contribution/balance',
   forgotPasswordEndPoint: '/api/member/forgot-password',
   categoryAndHelpTypeEndPont: '/api/help/attributes',
-  helpDescriptionCommentEndPoint:'/api/help/comments'
+  helpDescriptionCommentEndPoint: '/api/help/comments'
 };
 
 /*

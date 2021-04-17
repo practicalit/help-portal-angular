@@ -5,9 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Egna Legna';
-  year:number = 2017;
+  year = 2017;
 
   ngOnInit() {
     this.year = (new Date()).getFullYear();

@@ -7,10 +7,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./help-description.component.css']
 })
 export class HelpDescriptionComponent implements OnInit {
-  
+
   id: number;
   detail: any;
-  
+
   constructor(private helpService: HelpService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -18,17 +18,16 @@ export class HelpDescriptionComponent implements OnInit {
     //the + at the front changes string to number
     this.id = +this.route.snapshot.paramMap.get('id');
     this.helpService.getHelpDetail(this.id).subscribe(
-      detail => this.detail = detail     
+      detail => this.detail = detail
     );
   }
   /**
-   * Added for performance purposes 
-   * 
+   * Added for performance purposes
+   *
    * @param @index
-   * @param @item 
+   * @param @item
    */
   trackByFunction(index: any, item: any) {
     return index;
    }
-   
 }

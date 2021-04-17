@@ -20,53 +20,53 @@ import { CommentComponent } from './components/help/comment/comment.component';
 
 const routes: Routes = [
   {
-    path:'', redirectTo: "home", pathMatch: 'full'
+    path: '', redirectTo: 'home', pathMatch: 'full'
   },
   {
-    //Links for the logged user will be children of home component
-    path:"home", component: HomeComponent, 
+    // Links for the logged user will be children of home component
+    path: 'home', component: HomeComponent,
     children: [
       {
-        path:"charts", component: DashboardComponent
+        path: 'charts', component: DashboardComponent
       },
       {
-        path:"help", component: HelpComponent
+        path: 'help', component: HelpComponent
       },
-      
+
       {
-        path:"add-help" , component:AddHelpComponent
-      },
-      {
-        path:"add-fund", component: AddFundComponent
+        path: 'add-help' , component: AddHelpComponent
       },
       {
-        path:"balance", component: BalanceComponent
+        path: 'add-fund', component: AddFundComponent
       },
       {
-        path:"help-description/:id", component:HelpDescriptionComponent, pathMatch:'full'
-      },
-      {path :"comment" , component:CommentComponent} ,
-      {
-        path: "user-profile", component: UserProfileComponent
+        path: 'balance', component: BalanceComponent
       },
       {
-        path: "member-profile", component: MemberProfileComponent
+        path: 'help-description/:id', component: HelpDescriptionComponent, pathMatch: 'full'
+      },
+      {path : 'comment' , component: CommentComponent} ,
+      {
+        path: 'user-profile', component: UserProfileComponent
       },
       {
-        path:"password-reset" , component:PasswordResetComponent
+        path: 'member-profile', component: MemberProfileComponent
       },
-      
+      {
+        path: 'password-reset' , component: PasswordResetComponent
+      },
+
     ]
   },
   {
-    path:"login", component: LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
-    //new add
-    path: "forgot-password", component: ForgotPasswordComponent
+    // new add
+    path: 'forgot-password', component: ForgotPasswordComponent
   },
   {
-    path:"register", component: RegisterComponent, pathMatch:'full'
+    path: 'register', component: RegisterComponent, pathMatch: 'full'
   }
 ];
 

@@ -24,7 +24,7 @@
     "chart.js": "2.8.0",
     "datatables.net-bs4": "1.10.19",
     "font-awesome": "^4.7.0",
-    "jquery": "3.4.1",
+    "jquery": "^3.6.0",
     "jquery.easing": "^1.4.1",
     "rxjs": "~6.4.0",
     "stripe-angular": "^1.0.2",
@@ -32,7 +32,7 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.24",
+    "@angular-devkit/build-angular": "^0.1102.6",
     "@angular/cli": "~8.3.7",
     "@angular/compiler-cli": "~8.2.9",
     "@angular/language-service": "~8.2.9",

@@ -9,10 +9,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class HomeComponent implements OnInit {
 
-  title = "Help Portal";
+  title = 'Help Portal';
 
-  constructor(private authService:AuthenticationService,
-     private router: Router) { }
+  constructor(private authService: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit() {
     this.redirectToLogin();
@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
    * If the user hasn't logged in yet, then redirect to login page
    */
   redirectToLogin() {
-    //check from services if the user has logged in.
-    let navigate = ['home/help']
+    // check from services if the user has logged in.
+    let navigate = ['home/help'];
     if (!this.authService.logged) {
       navigate = ['login'];
     }

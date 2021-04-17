@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TopHeaderComponent } from './top-header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TopHeaderComponent', () => {
   let component: TopHeaderComponent;
@@ -8,7 +10,11 @@ describe('TopHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopHeaderComponent ]
+      declarations: [ TopHeaderComponent ],
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   }));
@@ -23,3 +29,4 @@ describe('TopHeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
